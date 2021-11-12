@@ -2,12 +2,12 @@ version: 2.1
 
 commands: 
   print_pipeline_id:
-  parameters:
-    id:
-      type: string
-      default : "pipeline id"
-  steps:
-    -run : echo << parameters.id >>
+    parameters:
+      id:
+        type: string
+        default : "pipeline id"
+    steps:
+       -run : echo << parameters.id >>
 
 
 jobs:
@@ -36,6 +36,7 @@ jobs:
     steps:
       - print_pipeline_id:
           id: ${CIRCLE_WORKFLOW_ID}
+          
 workflows:
   say-hello-workflow:
     jobs:
